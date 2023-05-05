@@ -22,8 +22,8 @@ async function buildGoalsTable(goalsTable, goalsTableHeader, token, message) {
         return 0;
       } else {
         for (let i = 0; i < data.goals.length; i++) {
-          let editButton = `<td><button type="button" class="editButton" data-id=${data.goals[i]._id}>edit</button></td>`;
-          let deleteButton = `<td><button type="button" class="deleteButton" data-id=${data.goals[i]._id}>delete</button></td>`;
+          let editButton = `<td><button type="button" class="editButton" data-id=${data.goals[i]._id}>Edit</button></td>`;
+          let deleteButton = `<td><button type="button" class="deleteButton" data-id=${data.goals[i]._id}>Delete</button></td>`;
           let rowHTML = `<td>${data.goals[i].weightGoal}</td><td>${data.goals[i].status}</td>${editButton}${deleteButton}`;
           let rowEntry = document.createElement("tr");
           rowEntry.innerHTML = rowHTML;
@@ -63,8 +63,8 @@ async function buildWeightTable(
         return 0;
       } else {
         for (let i = 0; i < data.weights.length; i++) {
-          let editButton = `<td><button type="button" class="editButton" data-id=${data.weights[i]._id}>edit</button></td>`;
-          let deleteButton = `<td><button type="button" class="deleteButton" data-id=${data.weights[i]._id}>delete</button></td>`;
+          let editButton = `<td><button type="button" class="editButton" data-id=${data.weights[i]._id}>Edit</button></td>`;
+          let deleteButton = `<td><button type="button" class="deleteButton" data-id=${data.weights[i]._id}>Delete</button></td>`;
           let rowHTML = `<td>${data.weights[i].currentWeight}</td>${editButton}${deleteButton}`;
           let rowEntry = document.createElement("tr");
           rowEntry.innerHTML = rowHTML;
@@ -121,13 +121,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const weightTableHeader = document.getElementById("weight-table-header");
   const addWeight = document.getElementById("add-weight");
   const editWeight = document.getElementById("edit-weight");
-  const currentWeight = document.getElementById("currenrWeight");
+  const currentWeight = document.getElementById("currentWeight");
   const addingWeight = document.getElementById("adding-weight");
   const editCancelWeight = document.getElementById("edit-cancel-weight");
   const weightMessage = document.getElementById("weight-message");
   const selectGoal = document.getElementById("select-goal");
   const selectWeight = document.getElementById("select-weight");
   const about = document.getElementById("about");
+  const footer = document.getElementById("footer");
 
   // section 2
   let showing = loginRegister;
@@ -243,6 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
           localStorage.setItem("token", token);
           showing.style.display = "none";
           about.style.display = "none";
+          footer.style.display = "none";
           thisEvent = new Event("startDisplay");
           email.value = "";
           password.value = "";
@@ -283,6 +285,7 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("token", token);
             showing.style.display = "none";
             about.style.display = "none";
+            footer.style.display = "none";
             thisEvent = new Event("startDisplay");
             document.dispatchEvent(thisEvent);
             name.value = "";
@@ -524,7 +527,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       suspendInput = false;
     } // section 5
-    else if (e.target.classList.contains("editButton")) {
+    else if (e.target.classList.contains("editWeightButton")) {
       editWeight.dataset.id = e.target.dataset.id;
       suspendInput = true;
       try {

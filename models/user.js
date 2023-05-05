@@ -31,7 +31,7 @@ const UserSchema = new mongoose.Schema({
   activity_level: {
     type: String,
     enum: {
-      values: ["high", "middle", "low"],
+      values: ["high", "medium", "low"],
       message: "{VALUE} is not supported",
     },
   },
