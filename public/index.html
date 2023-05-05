@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- main css -->
+    <link rel="stylesheet" href="./main.css" />
+    <meta name="description" content="Final Project" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Kalam"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Weight Tracker</title>
+  </head>
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <ul class="navbar">
+         
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <body>
+    <h1>Track your weight!</h1>
+    <section id="about">
+    <h1>About</h1>
+    <p>Hi! Welcome to the Weight Tracker App!</p>
+    <p>
+      If you want to get healthier and lose weigth, you have to stick to this process. You
+      have to make a goal and track the progress towards that goal. The good
+      approach is to visualize the progress that helps you to stay motivated and
+      stay on track and continue to push those numbers.
+    </p>
+    <p>
+      I tried to do my best and create Weight Tracker app using Node.JS, Express
+      Framework and MongoDB with Mongoose library as a data storage. Front end was build with HTML, CSS and JavaScript and it uses API with fetch() calls.
+      Back end has 3 Mongoose data models: Users, Weight Goals and Current Weight.
+    </p>
+    <p>Other packages that were used:    
+      <ul>
+        <li>Security packages: 
+          <ul>
+            <li>Helmet</li>
+            <li>Cors</li>
+            <li>Xss-clean</li>
+           <li>Express-rate-limit</li>
+          </ul>
+        </li>
+        <li>Dotenv NPM package</li>
+        <li>Jsonwebtoken package for user authentication</li>
+        <li>Bcryptjs/dist/bcrypt for storing user's passwords hashed and salted</li>
+      </ul>
+    </p>
+  </section>
+<section>
+  <button type="button" id="logoff" style="display: none">Logoff</button>
+  <hr />
+  <p id="message"></p>
+  <hr />
+      <div id="login-register">
+      <button type="button" id="login">Login</button>
+      <button type="button" id="register">Register</button>
+    </div>
+    <div id="login-div" style="display: none">
+      <form>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" />
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" />
+        </div>
+        <button type="button" id="login-button">Login</button>
+        <button type="button" id="login-cancel">Cancel</button>
+      </form>
+      <hr />
+    </div>
+    <div id="register-div" style="display: none">
+      <form>
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" />
+        </div>
+        <div>
+          <label for="age">Age/years:</label>
+          <input type="number" id="age" />
+        </div>
+        <div>
+          <label for="height">Height/cm:</label>
+          <input type="number" id="height" />
+        </div>
+        <div>
+          <label for="weight">Weight/kg:</label>
+          <input type="number" id="weight" />
+        </div>
+        <div>
+          <label for="gender">Gender:</label>
+          <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="someone_else">Someone else</option>
+          </select>
+        </div>
+        <div>
+          <label for="activity_level">Activity Level:</label>
+          <select id="activity_level">
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+        <div>
+          <label for="email1">email:</label>
+          <input type="email" id="email1" />
+        </div>
+        <div>
+          <label for="password1">password:</label>
+          <input type="password" id="password1" />
+        </div>
+        <div>
+          <label for="password2">verify password:</label>
+          <input type="password" id="password2" />
+        </div>
+        <button type="button" id="register-button">register</button>
+        <button type="button" id="register-cancel">cancel</button>
+      </form>
+    </div>
+    <div id="goals" style="display: none">
+      <p id="goals-message"></p>
+      <table id="goals-table" style="display: none">
+        <tr id="goals-table-header">
+          <th>Weight Goal</th>
+          <th>Status</th>
+          <th colspan="2"></th>
+        </tr>
+      </table>
+      <button type="button" id="add-goal">Add Goal</button>
+    </div>
+    <div id="edit-goal" style="display: none">
+      <form>
+        <div>
+          <label for="weightGoal">Weight Goal:</label>
+          <input type="number" id="weightGoal" />
+        </div>
+        <div>
+          <label for="status">Status:</label>
+          <select id="status">
+            <option value="set">Set</option>
+            <option value="declined">Declined</option>
+            <option value="reached">Reached</option>
+          </select>
+        </div>
+        <button type="button" id="adding-goal">Add</button>
+        <button type="button" id="edit-cancel">Cancel</button>
+      </form>
+    </div>
+    <div id="weight1" style="display: none">
+      <p id="weight-message"></p>
+      <table id="weight-table" style="display: none">
+        <tr id="weight-table-header">
+          <th>Current Weight</th>
+        </tr>
+      </table>
+      <button type="button" id="add-weight">Add Weight</button>
+    </div>
+    <div id="edit-weight" style="display: none">
+      <form>
+        <div>
+          <label for="currentWeight">Current Weight /kg:</label>
+          <input type="number" id="currentWeight" />
+        </div>
+        <button type="button" id="adding-weight">Add</button>
+        <button type="button" id="edit-cancel-weight">Cancel</button>
+      </form>
+    </div>
+
+<!--</section>
+<section id="welcome" style="display: none">
+  <button type="button" id="logoff" style="display: none">Logoff</button>
+  <hr />
+  <p id="message"></p>
+  <hr />
+  <p>
+    What do you want to do next: set weight goal or enter your current weight?
+  </p>
+  <button type="button" id="select-goal">Set Goal</button>
+  <button type="button" id="select-weight">Enter Weight</button>
+</section> -->
+
+        <footer></footer>
+    <script src="./browser-app.js"></script>
+  </body>
+</html>
