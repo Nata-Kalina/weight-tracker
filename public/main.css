@@ -1,5 +1,6 @@
 body {
   background-color: #fcf6eb;
+  background-image: url("image1.jpg");
   color: #2c607a;
   font-family: "Kalam", sans-serif;
   font-size: 22px;
@@ -20,38 +21,6 @@ h2 {
   font-size: 24px;
   font-weight: 600;
   color: #25947e;
-}
-
-#experience ul {
-  list-style-type: square;
-}
-
-#skills ul {
-  list-style-type: square;
-}
-
-#leave-message label {
-  font-size: 20px;
-  color: #1c7399;
-  font-weight: bold;
-}
-
-#leave-message input,
-#leave-message textarea {
-  font-size: 18px;
-  padding: 3px;
-  border-color: #099992;
-  margin: 5px;
-}
-
-#leave-message button[type="submit"] {
-  padding: 10px;
-  background-color: #3a5f8a;
-  border-color: #3a5f8a;
-  color: #faf9af;
-  font-size: 30px;
-  font-weight: bold;
-  border-radius: 3px;
 }
 
 footer {
@@ -84,51 +53,6 @@ button {
   width: 100px;
 }
 
-.navbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  justify-content: center;
-  align-items: center;
-}
-
-.navbar li {
-  flex-grow: 0;
-  flex-shrink: 1;
-  /* background-color: #a1dbd1;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #40b898;*/
-}
-
-.menu_image {
-  border-radius: 50%;
-  width: 150px;
-}
-
-.menu {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  justify-content: center;
-  align-items: center;
-}
-
-.menu li {
-  flex-grow: 0;
-  flex-shrink: 1;
-}
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-}
 body {
   display: flex;
   flex-direction: column;
@@ -167,10 +91,6 @@ footer ul {
   align-items: center;
 }
 
-#connect_info {
-  display: none;
-}
-
 @media screen and (max-width: 480px) {
   .menu_image {
     display: none;
@@ -180,37 +100,12 @@ footer ul {
     font-size: 16px;
     font-weight: 900;
   }
-  .navbar li {
-    font-size: 12px;
-    font-weight: 900;
-  }
-  .navbar {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 1rem;
-    padding-left: 10px;
-  }
-  .nav {
-    display: flex;
-    justify-content: flex-start;
-  }
+
   body {
     background-color: #fcf6eb;
+
     color: #2c607a;
     font-family: "Kalam", sans-serif;
     font-size: 14px;
-  }
-  .menu {
-    gap: 1rem;
-    padding-left: 10px;
-  }
-  #leave-message label {
-    font-size: 14px;
-    color: #1c7399;
-    font-weight: bold;
   }
 }
